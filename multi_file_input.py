@@ -1,5 +1,12 @@
-with open("inputs_multiple.txt", "r") as f:
+def quadratic_temperature(a, b, c, t):
+    return a * (t ** 2) + b * t + c
+
+with open("input_multi.txt", "r", encoding="utf-8") as f:
     for line in f:
-        a, b, c, t = map(float, line.strip().split())
-        T = a * t**2 + b * t + c
-        print(f"a={a}, b={b}, c={c}, t={t} -> T={T:.2f}°C")
+        if line.strip():
+            # Clean up strange characters
+            parts = [p.strip().replace("Â", "") for p in line.split()]
+            a, b, c, t = map(float, parts)
+            
+            temperature = quadratic_temperature(a, b, c, t)
+            print(f"For coefficients (a={a}, b={b}, c={c}) and t={t} -> Predicted Temperature = {temperature}")

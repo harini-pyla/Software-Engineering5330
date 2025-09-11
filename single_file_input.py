@@ -1,11 +1,9 @@
-with open("inputs_single.txt", "r") as f:
-    lines = [line.strip() for line in f.readlines() if line.strip()]
+def quadratic_temperature(a, b, c, t):
+    return a * (t ** 2) + b * t + c
 
-a = float(lines[0])
-b = float(lines[1])
-c = float(lines[2])
-t = float(lines[3])
+with open("input_single.txt", "r") as f:
+    line = f.readline().strip()
+    a, b, c, t = map(float, line.split())
 
-T = a * t**2 + b * t + c
-
-print(f"Predicted temperature at t={t}: {T:.2f}°C")
+temperature = quadratic_temperature(a, b, c, t)
+print(f"At time t={t}, Predicted Temperature = {temperature}")
