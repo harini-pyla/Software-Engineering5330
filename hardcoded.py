@@ -1,7 +1,7 @@
-a = 0.5
-b = -3
-c = 28
-t = 5 
+def quadratic_temperature(a, b, c, t):
+    return a * (t ** 2) + b * t + c
 
-T = a * t**2 + b * t + c
-print(f"Predicted temperature at t={t}: {T:.2f}°C")
+a, b, c = 1, -2, 30
+t = 5
+temperature = quadratic_temperature(a, b, c, t)
+print(f"At time t={t}, Predicted Temperature = {temperature}")
